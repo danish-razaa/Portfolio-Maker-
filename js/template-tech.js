@@ -21,22 +21,32 @@ function renderTechTemplate(container, data) {
                 <div class="sidebar-section">
                     <h2 class="sidebar-title">Skills</h2>
                     <div class="skills-list">
-                        ${data.skills.map(skill => `
+                        ${(data.skills || []).map(skill => `
                             <div class="skill-item">
-                                <span class="editable">${skill}</span>
+                                <span>${skill}</span>
                             </div>
                         `).join('')}
+                        ${(!data.skills || data.skills.length === 0) ? `
+                            <div class="skill-item">
+                                <span>No skills added yet</span>
+                            </div>
+                        ` : ''}
                     </div>
                 </div>
                 
                 <div class="sidebar-section">
                     <h2 class="sidebar-title">Languages</h2>
                     <div class="languages-list">
-                        ${data.languages.map(language => `
+                        ${(data.languages || []).map(language => `
                             <div class="language-item">
-                                <span class="editable">${language}</span>
+                                <span>${language}</span>
                             </div>
                         `).join('')}
+                        ${(!data.languages || data.languages.length === 0) ? `
+                            <div class="language-item">
+                                <span>No languages added yet</span>
+                            </div>
+                        ` : ''}
                     </div>
                 </div>
                 
@@ -54,7 +64,7 @@ function renderTechTemplate(container, data) {
                 
                 <div class="section">
                     <h2 class="section-title">Experience</h2>
-                    ${data.experience.map(exp => `
+                    ${(data.experience || []).map(exp => `
                         <div class="experience-item">
                             <div class="experience-header">
                                 <h3 class="experience-title editable">${exp.position || 'Position'}</h3>
@@ -64,17 +74,34 @@ function renderTechTemplate(container, data) {
                             <p class="experience-description editable">${exp.description || 'Description'}</p>
                         </div>
                     `).join('')}
+                    ${(!data.experience || data.experience.length === 0) ? `
+                        <div class="experience-item">
+                            <div class="experience-header">
+                                <h3 class="experience-title editable">Add your experience here</h3>
+                                <span class="experience-duration editable">Duration</span>
+                            </div>
+                            <h4 class="experience-company editable">Company</h4>
+                            <p class="experience-description editable">Description</p>
+                        </div>
+                    ` : ''}
                 </div>
                 
                 <div class="section">
                     <h2 class="section-title">Projects</h2>
-                    ${data.projects.map(project => `
+                    ${(data.projects || []).map(project => `
                         <div class="project-item">
                             <h3 class="project-title editable">${project.title || 'Project Title'}</h3>
                             <p class="project-description editable">${project.description || 'Project Description'}</p>
                             ${project.link ? `<a href="${project.link}" class="project-link editable" target="_blank">${project.link}</a>` : ''}
                         </div>
                     `).join('')}
+                    ${(!data.projects || data.projects.length === 0) ? `
+                        <div class="project-item">
+                            <h3 class="project-title editable">Add your project here</h3>
+                            <p class="project-description editable">Project Description</p>
+                            <a href="#" class="project-link editable" target="_blank">Project Link</a>
+                        </div>
+                    ` : ''}
                 </div>
             </div>
         </div>
