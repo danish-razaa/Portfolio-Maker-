@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Template - Portfolio Creator</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/templates.css">
+</head>
+<body>
+    <div class="templates-container">
+        <header class="app-header">
+            <div class="logo">
+                <h1>Portfolio Creator</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="dashboard.html" class="btn btn-outline">Dashboard</a></li>
+                    <li><span id="user-name">User</span></li>
+                    <li><button id="logout-btn" class="btn btn-outline">Logout</button></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <main class="templates-content">
+            <div class="templates-header">
+                <h1>Choose a Template</h1>
+                <p>Select a template that best suits your style and profession.</p>
+            </div>
+            
+            <div class="templates-grid">
+                <div class="template-card" data-template="modern">
+                    <div class="template-preview">
+                        <img src="img/template-modern.jpg" alt="Modern Template">
+                    </div>
+                    <div class="template-info">
+                        <h3>Modern</h3>
+                        <p>Clean and professional design with a modern touch.</p>
+                        <button class="btn btn-primary btn-select">Select</button>
+                    </div>
+                </div>
+                
+                <div class="template-card" data-template="creative">
+                    <div class="template-preview">
+                        <img src="img/template-creative.jpg" alt="Creative Template">
+                    </div>
+                    <div class="template-info">
+                        <h3>Creative</h3>
+                        <p>Bold and artistic design for creative professionals.</p>
+                        <button class="btn btn-primary btn-select">Select</button>
+                    </div>
+                </div>
+                
+                <div class="template-card" data-template="corporate">
+                    <div class="template-preview">
+                        <img src="img/template-corporate.jpg" alt="Corporate Template">
+                    </div>
+                    <div class="template-info">
+                        <h3>Corporate</h3>
+                        <p>Traditional and elegant design for business professionals.</p>
+                        <button class="btn btn-primary btn-select">Select</button>
+                    </div>
+                </div>
+                
+                <div class="template-card" data-template="tech">
+                    <div class="template-preview">
+                        <img src="img/template-tech.jpg" alt="Tech Template">
+                    </div>
+                    <div class="template-info">
+                        <h3>Tech</h3>
+                        <p>Modern design with a technical focus for IT professionals.</p>
+                        <button class="btn btn-primary btn-select">Select</button>
+                    </div>
+                </div>
+                
+                <div class="template-card" data-template="academic">
+                    <div class="template-preview">
+                        <img src="img/template-academic.jpg" alt="Academic Template">
+                    </div>
+                    <div class="template-info">
+                        <h3>Academic</h3>
+                        <p>Formal design for researchers and educators.</p>
+                        <button class="btn btn-primary btn-select">Select</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer class="app-footer">
+            <p>&copy;  Portfolio Creator. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/auth.js"></script>
+    <script src="js/templates.js"></script>
+</body>
+</html>

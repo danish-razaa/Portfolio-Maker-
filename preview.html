@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview Portfolio - Portfolio Creator</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/templates.css">
+    <!-- Include html2pdf library for PDF generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+</head>
+<body>
+    <div class="preview-container">
+        <header class="app-header">
+            <div class="logo">
+                <h1>Portfolio Creator</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="dashboard.html" class="btn btn-outline">Dashboard</a></li>
+                    <li><span id="user-name">User</span></li>
+                    <li><button id="logout-btn" class="btn btn-outline">Logout</button></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <main class="preview-content">
+            <div class="preview-header">
+                <h1>Preview Your Portfolio</h1>
+                <div class="preview-actions">
+                    <button id="edit-btn" class="btn btn-outline">Edit</button>
+                    <button id="download-btn" class="btn btn-primary">Download PDF</button>
+                    <button id="change-template-btn" class="btn btn-outline">Change Template</button>
+                </div>
+            </div>
+            
+            <div class="edit-mode-container" style="display: none;">
+                <div class="edit-mode-message">
+                    <p>Edit Mode: Click on any text to edit it.</p>
+                    <div class="edit-mode-actions">
+                        <button id="save-edits-btn" class="btn btn-primary">Save Changes</button>
+                        <button id="cancel-edits-btn" class="btn btn-outline">Cancel</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="portfolio-container" class="portfolio-container">
+                <!-- Portfolio content will be rendered here by JavaScript -->
+            </div>
+        </main>
+        
+        <footer class="app-footer">
+            <p>&copy;  Portfolio Creator. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/auth.js"></script>
+    <script src="js/template-modern.js"></script>
+    <script src="js/template-creative.js"></script>
+    <script src="js/template-corporate.js"></script>
+    <script src="js/template-tech.js"></script>
+    <script src="js/template-academic.js"></script>
+    <script src="js/preview.js"></script>
+</body>
+</html>

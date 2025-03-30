@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionnaire - Portfolio Creator</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="questionnaire-container">
+        <header class="app-header">
+            <div class="logo">
+                <h1>Portfolio Creator</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="dashboard.html" class="btn btn-outline">Dashboard</a></li>
+                    <li><span id="user-name">User</span></li>
+                    <li><button id="logout-btn" class="btn btn-outline">Logout</button></li>
+                </ul>
+            </nav>
+        </header>
+        
+        <main class="questionnaire-content">
+            <div class="questionnaire-header">
+                <h1>Portfolio Questionnaire</h1>
+                <p>Let's gather information for your portfolio. Fill out the form below.</p>
+            </div>
+            
+            <div class="progress-container">
+                <div class="progress-step active" data-step="1">Personal Info</div>
+                <div class="progress-step" data-step="2">Skills</div>
+                <div class="progress-step" data-step="3">Experience</div>
+                <div class="progress-step" data-step="4">Projects</div>
+                <div class="progress-step" data-step="5">Goals</div>
+            </div>
+            
+            <div class="questionnaire-form">
+                <!-- Step 1: Personal Information -->
+                <div id="step-1" class="form-step active">
+                    <h2>Personal Information</h2>
+                    
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="bio">Professional Bio</label>
+                        <textarea id="bio" name="bio" rows="5" placeholder="Write a brief introduction about yourself..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="photo">Profile Photo</label>
+                        <input type="file" id="photo" name="photo" accept="image/*">
+                        <div id="photo-preview" class="photo-preview"></div>
+                    </div>
+                    
+                    <div class="form-buttons">
+                        <button type="button" class="btn btn-primary btn-next">Next</button>
+                    </div>
+                </div>
+                
+                <!-- Step 2: Skills & Languages -->
+                <div id="step-2" class="form-step">
+                    <h2>Skills & Languages</h2>
+                    
+                    <div class="form-group">
+                        <label for="skills">Skills (Press Enter or comma to add)</label>
+                        <input type="text" id="skills" name="skills" placeholder="e.g., JavaScript, UI Design, Project Management">
+                        <div id="skills-tags" class="tags-container"></div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="languages">Languages (Press Enter or comma to add)</label>
+                        <input type="text" id="languages" name="languages" placeholder="e.g., English, Spanish, French">
+                        <div id="languages-tags" class="tags-container"></div>
+                    </div>
+                    
+                    <div class="form-buttons">
+                        <button type="button" class="btn btn-outline btn-prev">Previous</button>
+                        <button type="button" class="btn btn-primary btn-next">Next</button>
+                    </div>
+                </div>
+                
+                <!-- Step 3: Work Experience -->
+                <div id="step-3" class="form-step">
+                    <h2>Work Experience</h2>
+                    
+                    <div id="experience-container">
+                        <div class="experience-item">
+                            <div class="form-group">
+                                <label for="position-1">Position</label>
+                                <input type="text" id="position-1" name="position-1">
+                            </div>
+                            <div class="form-group">
+                                <label for="company-1">Company</label>
+                                <input type="text" id="company-1" name="company-1">
+                            </div>
+                            <div class="form-group">
+                                <label for="duration-1">Duration</label>
+                                <input type="text" id="duration-1" name="duration-1" placeholder="e.g., Jan 2020 - Present">
+                            </div>
+                            <div class="form-group">
+                                <label for="description-1">Description</label>
+                                <textarea id="description-1" name="description-1" rows="3"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="button" id="add-experience" class="btn btn-outline btn-add">+ Add Another Experience</button>
+                    
+                    <div class="form-buttons">
+                        <button type="button" class="btn btn-outline btn-prev">Previous</button>
+                        <button type="button" class="btn btn-primary btn-next">Next</button>
+                    </div>
+                </div>
+                
+                <!-- Step 4: Projects -->
+                <div id="step-4" class="form-step">
+                    <h2>Projects</h2>
+                    
+                    <div id="projects-container">
+                        <div class="project-item">
+                            <div class="form-group">
+                                <label for="project-title-1">Project Title</label>
+                                <input type="text" id="project-title-1" name="project-title-1">
+                            </div>
+                            <div class="form-group">
+                                <label for="project-description-1">Description</label>
+                                <textarea id="project-description-1" name="project-description-1" rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="project-link-1">Project Link (Optional)</label>
+                                <input type="url" id="project-link-1" name="project-link-1" placeholder="https://...">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button type="button" id="add-project" class="btn btn-outline btn-add">+ Add Another Project</button>
+                    
+                    <div class="form-buttons">
+                        <button type="button" class="btn btn-outline btn-prev">Previous</button>
+                        <button type="button" class="btn btn-primary btn-next">Next</button>
+                    </div>
+                </div>
+                
+                <!-- Step 5: Goals & Aspirations -->
+                <div id="step-5" class="form-step">
+                    <h2>Goals & Aspirations</h2>
+                    
+                    <div class="form-group">
+                        <label for="goals">Professional Goals</label>
+                        <textarea id="goals" name="goals" rows="5" placeholder="Describe your career goals and aspirations..."></textarea>
+                    </div>
+                    
+                    <div class="form-buttons">
+                        <button type="button" class="btn btn-outline btn-prev">Previous</button>
+                        <button type="button" id="submit-questionnaire" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <footer class="app-footer">
+            <p>&copy;  Portfolio Creator. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="js/auth.js"></script>
+    <script src="js/questionnaire.js"></script>
+</body>
+</html>
