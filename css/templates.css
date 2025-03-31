@@ -159,56 +159,6 @@
     transition: var(--transition);
 }
 
-/* Skills and Languages Styles */
-.skills-grid,
-.skills-list,
-.languages-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 15px;
-}
-
-.skill-item,
-.language-item {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 8px 15px;
-    border-radius: 20px;
-    font-size: 14px;
-    transition: var(--transition);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 100px;
-}
-
-.skill-item:hover,
-.language-item:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-    background-color: var(--primary-dark);
-}
-
-.skill-item .editable,
-.language-item .editable {
-    color: white;
-    text-align: center;
-    width: 100%;
-}
-
-.skill-item .editable:hover,
-.language-item .editable:hover {
-    background-color: transparent;
-}
-
-.skill-item .editable.editing,
-.language-item .editable.editing {
-    background-color: rgba(255, 255, 255, 0.1);
-    outline: 2px solid white;
-    color: white;
-}
-
 /* Modern Template */
 .template-modern .header {
     background-color: var(--primary-color);
@@ -447,52 +397,6 @@
     padding: 5px;
     border-radius: 4px;
     box-shadow: 0 0 0 2px rgba(74, 108, 247, 0.2);
-}
-
-/* Template-specific skills and languages styles */
-.template-modern .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 15px;
-}
-
-.template-creative .skills-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.template-corporate .skills-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    gap: 15px;
-}
-
-.template-tech .skill-item,
-.template-tech .language-item {
-    background-color: var(--dark-color);
-    margin-bottom: 10px;
-}
-
-.template-academic .sidebar-section .skills-list,
-.template-academic .sidebar-section .languages-list {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.template-academic .skill-item,
-.template-academic .language-item {
-    background-color: var(--light-color);
-    color: var(--text-color);
-    border: 1px solid var(--border-color);
-}
-
-.template-academic .skill-item:hover,
-.template-academic .language-item:hover {
-    background-color: var(--primary-color);
-    color: white;
-    border-color: var(--primary-color);
 }
 
 /* Responsive Design for Templates */

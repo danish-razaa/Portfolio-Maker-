@@ -7,7 +7,7 @@ function checkAuth() {
         return true;
     }
 
-    const currentUser = localStorage.getItem('currentUser');
+    const currentUser = getCurrentUser();
     
     // If on login.html or signup.html, don't redirect
     if (window.location.pathname.includes('login.html') || 
@@ -24,9 +24,8 @@ function checkAuth() {
     // Update user name display if element exists
     const userNameElements = document.querySelectorAll('#user-name');
     if (userNameElements.length > 0) {
-        const userData = JSON.parse(currentUser);
         userNameElements.forEach(element => {
-            element.textContent = userData.name;
+            element.textContent = currentUser.name;
         });
     }
     
@@ -114,19 +113,20 @@ function handleSignup(e) {
     // Set as current user
     localStorage.setItem('currentUser', JSON.stringify(newUser));
     
-    // Redirect to dashboard
-    window.location.href = 'dashboard.html';
+    // Show success message
+    errorMessage.textContent = 'Account created successfully! Redirecting...';
+    errorMessage.style.color = 'green';
+    
+    // Redirect to dashboard after a short delay
+    setTimeout(() => {
+        window.location.href = 'dashboard.html';
+    }, 1500);
 }
 
-// Logout function
+// Handle logout
 function logout() {
-    const currentUser = getCurrentUser();
-    if (currentUser) {
-        // Clear user-specific portfolio data
-        localStorage.removeItem(`portfolioData_${currentUser.id}`);
-    }
     localStorage.removeItem('currentUser');
-    window.location.href = 'login.html';
+    window.location.href = 'index.html';
 }
 
 // Get current user data
@@ -136,34 +136,6 @@ function getCurrentUser() {
         return null;
     }
     return JSON.parse(currentUser);
-}
-
-// Update current user data
-function updateCurrentUser(userData) {
-    // Get current user
-    const currentUser = getCurrentUser();
-    if (!currentUser) {
-        return false;
-    }
-    
-    // Update user data
-    const updatedUser = { ...currentUser, ...userData };
-    
-    // Update in localStorage
-    localStorage.setItem('currentUser', JSON.stringify(updatedUser));
-    
-    // Update in users array
-    const users = JSON.parse(localStorage.getItem('users') || '[]');
-    const updatedUsers = users.map(user => {
-        if (user.id === currentUser.id) {
-            return updatedUser;
-        }
-        return user;
-    });
-    
-    localStorage.setItem('users', JSON.stringify(updatedUsers));
-    
-    return true;
 }
 
 // Initialize auth-related event listeners
