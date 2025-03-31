@@ -2,11 +2,15 @@
 
 // Check if user is logged in
 function checkAuth() {
+    // If on index.html, completely bypass authentication
+    if (window.location.pathname.endsWith('index.html') || window.location.pathname === '/') {
+        return true;
+    }
+
     const currentUser = localStorage.getItem('currentUser');
     
-    // If on index.html, login.html, or signup.html, don't redirect
-    if (window.location.pathname.includes('index.html') || 
-        window.location.pathname.includes('login.html') || 
+    // If on login.html or signup.html, don't redirect
+    if (window.location.pathname.includes('login.html') || 
         window.location.pathname.includes('signup.html')) {
         return true;
     }
