@@ -3,13 +3,17 @@
 // Check if user is logged in
 function checkAuth() {
     const currentUser = localStorage.getItem('currentUser');
+    
+    // If on index.html, login.html, or signup.html, don't redirect
+    if (window.location.pathname.includes('index.html') || 
+        window.location.pathname.includes('login.html') || 
+        window.location.pathname.includes('signup.html')) {
+        return true;
+    }
+    
+    // For all other pages, require authentication
     if (!currentUser) {
-        // If on a protected page, redirect to login
-        if (!window.location.pathname.includes('index.html') && 
-            !window.location.pathname.includes('login.html') && 
-            !window.location.pathname.includes('signup.html')) {
-            window.location.href = 'login.html';
-        }
+        window.location.href = 'login.html';
         return false;
     }
     
