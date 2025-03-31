@@ -92,7 +92,18 @@ function handleSignup(e) {
     // Check if email already exists
     const users = JSON.parse(localStorage.getItem('users') || '[]');
     if (users.some(user => user.email === email)) {
-        errorMessage.textContent = 'Email already in use.';
+        errorMessage.textContent = 'This email is already registered. Please login instead.';
+        errorMessage.style.color = 'red';
+        
+        // Add a link to login page
+        const loginLink = document.createElement('a');
+        loginLink.href = 'login.html';
+        loginLink.textContent = 'Go to Login';
+        loginLink.className = 'btn btn-primary';
+        loginLink.style.marginTop = '10px';
+        loginLink.style.display = 'block';
+        errorMessage.parentNode.appendChild(loginLink);
+        
         return;
     }
     

@@ -201,10 +201,18 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem(`portfolioData_${currentUser.id}`, JSON.stringify(portfolioData));
         
         // Update user's questionnaire status
-        updateCurrentUser({ questionnaire: true });
+        currentUser.questionnaire = true;
+        localStorage.setItem('currentUser', JSON.stringify(currentUser));
         
-        // Redirect to templates page
-        window.location.href = 'templates.html';
+        // Show success message
+        const submitButton = document.getElementById('submit-questionnaire');
+        submitButton.textContent = 'Saving...';
+        submitButton.disabled = true;
+        
+        // Redirect to preview page after a short delay
+        setTimeout(() => {
+            window.location.href = 'preview.html';
+        }, 1000);
     });
     
     // Helper function to update progress bar

@@ -40,14 +40,21 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
 
-            // Save selected template to user's data
-            updateCurrentUser({ selectedTemplate: templateName });
+            // Update current user with selected template
+            currentUser.selectedTemplate = templateName;
+            localStorage.setItem('currentUser', JSON.stringify(currentUser));
             
             // Save selected template to localStorage with user ID
             localStorage.setItem(`selectedTemplate_${currentUser.id}`, templateName);
 
-            // Redirect to preview page
-            window.location.href = 'preview.html';
+            // Show loading state
+            button.textContent = 'Selecting...';
+            button.disabled = true;
+
+            // Redirect to preview page after a short delay
+            setTimeout(() => {
+                window.location.href = 'preview.html';
+            }, 1000);
         });
     });
 });
